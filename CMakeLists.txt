@@ -6,4 +6,4 @@ set(CMAKE_CXX_STANDARD 11)
 add_subdirectory(test)
 
 set(SOURCE_FILES class.h)
-add_executable(ProjectLab main.cpp listaSpesa.h listaSpesa.cpp)
+add_executable(ProjectLab main.cpp listaSpesa.h listaSpesa.cpp Observer.h Subject.h)

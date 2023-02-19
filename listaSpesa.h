@@ -6,7 +6,7 @@
 #define PROJECTLAB_LISTASPESA_H
 
 
-class listaSpesa {
+class listaSpesa : public Subject{
 
 };
 
