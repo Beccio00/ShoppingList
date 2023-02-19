@@ -19,11 +19,11 @@ public:
 
     void removeProd(Prodotto& p);
 
-    virtual void subscribe(Observer* o);
+    virtual void subscribe(Observer* o) override;
 
-    virtual void unsubscribe(Observer* o);
+    virtual void unsubscribe(Observer* o) override;
 
-    virtual void notify();
+    virtual void notify() override;
 
 
 private:
