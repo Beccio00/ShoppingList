@@ -13,13 +13,22 @@
 
 class ListaSpesa : public Subject{
 public:
-    ListaSpesa(std::string n): name(n){};
+    ListaSpesa(std::string& n): name(n){};
 
+    void addProd(Prodotto& p);
+
+    void removeProd(Prodotto& p);
+
+    virtual void subscribe(Observer* o);
+
+    virtual void unsubscribe(Observer* o);
+
+    virtual void notify();
 
 
 private:
     std::string name;
-    std::list<Prodotto> prodotti;
+    std::list<Prodotto> products;
     std::list<Observer*> observers;
 
 };

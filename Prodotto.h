@@ -11,7 +11,7 @@ class Prodotto {
 public:
     Prodotto(std::string& n, std::string& c, int q): name(n), category(c), quantity(q) {}
 
-
+    bool operator == (const Prodotto& p);
     const std::string &getName() const {
         return name;
     }
@@ -24,8 +24,8 @@ public:
         return quantity;
     }
 
-    void setQuantity(int quantity) {
-        Prodotto::quantity = quantity;
+    void setQuantity(int q) {
+        quantity = q;
     }
 
 private:
