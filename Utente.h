@@ -13,13 +13,13 @@
 
 class Utente : public Observer{
 public:
-    Utente(std::string& n, std::string& s): name(n), surname(s){};
+    explicit Utente(std::string& n): name(n){};
 
     void attach(Subject* list) override;
 
     void detach(Subject* list) override;
 
-    void update(Subject* list) override;
+    void update(Subject* list, std::string& s) override;
 
     void add(ListaSpesa* l, Prodotto& p);
 
@@ -31,7 +31,6 @@ public:
 
 private:
     std::string name;
-    std::string surname;
     std::list<Subject*> subjects;
 
 };

@@ -12,6 +12,7 @@ public:
     Prodotto(std::string& n, std::string& c, int q): name(n), category(c), quantity(q) {}
 
     bool operator == (const Prodotto& p);
+
     const std::string &getName() const {
         return name;
     }
@@ -32,7 +33,6 @@ private:
     std::string name;
     std::string category;
     int quantity;
-    bool bought = false;
 };
 
 

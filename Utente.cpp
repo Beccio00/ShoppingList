@@ -14,7 +14,7 @@ void Utente::detach(Subject* list) {
     list->unsubscribe(this);
 }
 
-void Utente::update(Subject *list) {
+void Utente::update(Subject *list, std::string& s) {
 
 }
 
@@ -24,7 +24,7 @@ void Utente::add(ListaSpesa *l, Prodotto& p) {
     if(it != subjects.end()){
         l->addProd(p);
     } else{
-        std::cout << "La lista dell spesa" << l->getName() << "non è presente nelle tue liste" << std::endl;
+        std::cout << "La lista della spesa" << l->getName() << "non è presente nelle tue liste" << std::endl;
     }
 }
 
@@ -34,7 +34,7 @@ void Utente::remove(ListaSpesa *l, Prodotto &p) {
     if(it != subjects.end()){
         l->removeProd(p);
     } else{
-        std::cout << "La lista dell spesa" << l->getName() << "non è presente nelle tue liste" << std::endl;
+        std::cout << "La lista della spesa" << l->getName() << "non è presente nelle tue liste" << std::endl;
     }
 }
 
@@ -44,7 +44,7 @@ void Utente::modify(ListaSpesa *l, Prodotto &p, int q) {
     if(it != subjects.end()){
         l->modifyQuantity(p,q);
     } else{
-        std::cout << "La lista dell spesa" << l->getName() << "non è presente nelle tue liste" << std::endl;
+        std::cout << "La lista della spesa" << l->getName() << "non è presente nelle tue liste" << std::endl;
     }
 }
 
