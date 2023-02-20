@@ -25,7 +25,7 @@ public:
 
     void remove(ListaSpesa* l, Prodotto& p);
 
-    void modify(ListaSpesa* l, Prodotto& p);
+    void modify(ListaSpesa* l, Prodotto& p, int q);
 
 
 

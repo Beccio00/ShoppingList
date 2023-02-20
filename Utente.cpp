@@ -38,14 +38,14 @@ void Utente::remove(ListaSpesa *l, Prodotto &p) {
     }
 }
 
-void Utente::modify(ListaSpesa *l, Prodotto &p) {
+void Utente::modify(ListaSpesa *l, Prodotto &p, int q) {
     auto it = std::find(subjects.begin(), subjects.end(), l);
 
     if(it != subjects.end()){
-
+        l->modifyQuantity(p,q);
     } else{
         std::cout << "La lista dell spesa" << l->getName() << "non è presente nelle tue liste" << std::endl;
     }
 }
-}
+
 

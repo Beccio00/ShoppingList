@@ -10,9 +10,28 @@ void ListaSpesa::addProd(Prodotto& p) {
 }
 
 void ListaSpesa::removeProd(Prodotto& p) {
-    products.remove(p);
-    notify();
+    auto it = std::find(products.begin(),products.end(),p);
+
+    if(it != products.end()) {
+        products.remove(p);
+        notify();
+    } else{
+        std::cout << "Il prodotto selezionato non è presente nella lista " << this->name << std::endl;
+    }
 }
+
+void ListaSpesa::modifyQuantity(Prodotto &p, int q) {
+    auto it = std::find(products.begin(),products.end(),p);
+
+    if(it != products.end()){
+        it->setQuantity(q);
+        notify();
+    }
+    else{
+        std::cout << "Il prodotto selezionato non è presente nella lista " << this->name << std::endl;
+    }
+}
+
 
 void ListaSpesa::subscribe(Observer* o) {
     observers.push_back(o);
@@ -36,15 +55,4 @@ void ListaSpesa::setName(const std::string &n) {
     name = n;
 }
 
-void ListaSpesa::modifyQuantity(Prodotto &p, int q) {
-    auto it = std::find(products.begin(),products.end(),p);
-
-    if(it != products.end()){
-        it->setQuantity(q);
-    }
-    else{
-        std::cout << "Il prodotto selezionato non è presente nella lista " << this->name << std::endl;
-    }
-
-}
 
