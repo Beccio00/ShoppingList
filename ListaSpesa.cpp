@@ -36,8 +36,15 @@ void ListaSpesa::setName(const std::string &n) {
     name = n;
 }
 
-void ListaSpesa::modifyQuantity(Prodotto &p) {
-    auto it = std::find(observers.begin(),observers.end(),p);
+void ListaSpesa::modifyQuantity(Prodotto &p, int q) {
+    auto it = std::find(products.begin(),products.end(),p);
+
+    if(it != products.end()){
+        it->setQuantity(q);
+    }
+    else{
+        std::cout << "Il prodotto selezionato non è presente nella lista " << this->name << std::endl;
+    }
 
 }
 

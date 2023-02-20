@@ -30,7 +30,7 @@ public:
 
     void setName(const std::string &name);
 
-    void modifyQuantity(Prodotto& p);
+    void modifyQuantity(Prodotto& p, int q);
 
 
 private:
