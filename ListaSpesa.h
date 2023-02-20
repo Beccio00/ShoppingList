@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include <list>
+#include <algorithm>
 #include "Subject.h"
 #include "Prodotto.h"
 #include "Observer.h"
@@ -19,11 +20,17 @@ public:
 
     void removeProd(Prodotto& p);
 
-    virtual void subscribe(Observer* o) override;
+    void subscribe(Observer* o) override;
 
-    virtual void unsubscribe(Observer* o) override;
+    void unsubscribe(Observer* o) override;
 
-    virtual void notify() override;
+    void notify() override;
+
+    const std::string &getName() const;
+
+    void setName(const std::string &name);
+
+    void modifyQuantity(Prodotto& p);
 
 
 private:

@@ -32,6 +32,7 @@ private:
     std::string name;
     std::string category;
     int quantity;
+    bool bought = false;
 };
 
 

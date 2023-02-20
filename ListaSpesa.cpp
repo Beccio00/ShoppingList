@@ -28,3 +28,16 @@ void ListaSpesa::notify() {
     }
 }
 
+const std::string &ListaSpesa::getName() const {
+    return name;
+}
+
+void ListaSpesa::setName(const std::string &n) {
+    name = n;
+}
+
+void ListaSpesa::modifyQuantity(Prodotto &p) {
+    auto it = std::find(observers.begin(),observers.end(),p);
+
+}
+
