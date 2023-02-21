@@ -22,7 +22,7 @@ void Utente::add(ListaSpesa *l, Prodotto& p) {
     auto it = std::find(subjects.begin(), subjects.end(), l);
 
     if(it != subjects.end()){
-        l->addProd(p);
+        l->addProd(p, this->name);
     } else{
         std::cout << "La lista della spesa" << l->getName() << "non è presente nelle tue liste" << std::endl;
     }
@@ -32,7 +32,7 @@ void Utente::remove(ListaSpesa *l, Prodotto &p) {
     auto it = std::find(subjects.begin(), subjects.end(), l);
 
     if(it != subjects.end()){
-        l->removeProd(p);
+        l->removeProd(p, this->name);
     } else{
         std::cout << "La lista della spesa" << l->getName() << "non è presente nelle tue liste" << std::endl;
     }
@@ -42,10 +42,14 @@ void Utente::modify(ListaSpesa *l, Prodotto &p, int q) {
     auto it = std::find(subjects.begin(), subjects.end(), l);
 
     if(it != subjects.end()){
-        l->modifyQuantity(p,q);
+        l->modifyQuantity(p, q, this->name);
     } else{
         std::cout << "La lista della spesa" << l->getName() << "non è presente nelle tue liste" << std::endl;
     }
+}
+
+void Utente::displayList(ListaSpesa *l) {
+    l->display();
 }
 
 

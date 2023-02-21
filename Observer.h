@@ -5,6 +5,8 @@
 #ifndef PROJECTLAB_OBSERVER_H
 #define PROJECTLAB_OBSERVER_H
 
+#include <iostream>
+
 class Subject;
 
 class Observer {

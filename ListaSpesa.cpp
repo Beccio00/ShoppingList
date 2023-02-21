@@ -67,4 +67,17 @@ void ListaSpesa::setName(const std::string &n) {
     name = n;
 }
 
+void ListaSpesa::display() {
+    int i = 1;
+
+    std::cout << std::endl;
+    std::cout << this->name << std::endl;
+    std::cout << std::endl;
+    std::cout << "        Prodotto           Quantità" << std::endl;
+    for(auto it:products){
+        std::cout << std::endl;
+        std::cout << "   " << i << "   " << it.getName()<< "        " << it.getQuantity() << std::endl;
+    }
+}
+
 

@@ -27,6 +27,8 @@ public:
 
     void modify(ListaSpesa* l, Prodotto& p, int q);
 
+    void displayList(ListaSpesa* l);
+
 
 
 private:
