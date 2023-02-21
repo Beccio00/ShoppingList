@@ -12,7 +12,8 @@
 int main() {
 
     std::string name1 = "Mario";
-    std::string  name2 = "Alice";
+    std::string name2 = "Alice";
+    std::string namelist = "mylist";
 
     std::string product1 = "Parmigiano";
     std::string product2 = "Mele";
@@ -28,10 +29,11 @@ int main() {
     Utente u1(name1);
     Utente u2(name2);
 
-    ListaSpesa l((std::string&)"mylist");
 
-    u1.detach(&l);
-    u2.detach(&l);
+    ListaSpesa l(namelist);
+
+    u1.attach(&l);
+    u2.attach(&l);
 
     u1.add(&l, p1);
     u2.add(&l, p2);
