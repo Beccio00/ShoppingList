@@ -13,7 +13,7 @@
 
 class Utente : public Observer{
 public:
-    explicit Utente(std::string& n): name(n){};
+    explicit Utente(std::string n): name(n){};
 
     void attach(Subject* list) override;
 
@@ -29,6 +29,9 @@ public:
 
     void displayList(ListaSpesa* l);
 
+    const std::string &getName() const;
+
+    void setName(const std::string &name);
 
 
 private:

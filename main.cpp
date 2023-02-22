@@ -9,11 +9,13 @@
 #include "Prodotto.h"
 #include "ListaSpesa.h"
 
+using namespace std;
+
 int main() {
 
+    string name;
     std::string name1 = "Mario";
     std::string name2 = "Alice";
-    std::string namelist = "mylist";
 
     std::string product1 = "Parmigiano";
     std::string product2 = "Mele";
@@ -30,7 +32,7 @@ int main() {
     Utente u2(name2);
 
 
-    ListaSpesa l(namelist);
+    ListaSpesa l("mylist");
 
     u1.attach(&l);
     u2.attach(&l);
@@ -40,6 +42,15 @@ int main() {
     u1.add(&l, p3);
 
     u1.displayList(&l);
+
+    cout << "Inserisci il tuo nome" << endl;
+    cin >> name;
+    Utente u(name);
+
+
+
+
+
 
     return 0;
 }

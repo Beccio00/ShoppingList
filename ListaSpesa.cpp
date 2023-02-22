@@ -44,14 +44,15 @@ void ListaSpesa::unsubscribe(Observer* o) {
 void ListaSpesa::notify(int num, std::string u) {
     std::string s;
 
-    if(num == 1){
-        s = "Nella lista della spesa " + this->name + " è stato aggiunto un prodotto da " + u;
-    }
-    if(num == 2) {
-        s = "Nella lista della spesa " + this->name + " è stato rimosso un prodotto da " + u;
-    }
-    if(num == 3) {
-        s = "Nella lista della spesa " + this->name + " è stata cambiata la quantità da comprare di un prodotto da " + u;
+    switch (num) {
+        case 1:
+            s = "Nella lista della spesa " + this->name + " è stato aggiunto un prodotto da " + u;
+            break;
+        case 2:
+            s = "Nella lista della spesa " + this->name + " è stato rimosso un prodotto da " + u;
+            break;
+        case 3:
+            s = "Nella lista della spesa " + this->name + " è stata cambiata la quantità da comprare di un prodotto da " + u;
     }
 
     for(auto it: observers) {
@@ -73,10 +74,12 @@ void ListaSpesa::display() {
     std::cout << std::endl;
     std::cout << this->name << std::endl;
     std::cout << std::endl;
-    std::cout << "        Prodotto           Quantità" << std::endl;
+    std::cout << "        Prodotto            Categoria          Quantità" << std::endl;
     for(auto it:products){
         std::cout << std::endl;
-        std::cout << "   " << i << "   " << it.getName()<< "        " << it.getQuantity() << std::endl;
+        std::cout << "  "<< i  << "     "<< std::left << std::setw(20) << it.getName()<<std::setw(20)
+            <<it.getCategory()<<  it.getQuantity() << std::endl;
+        i++;
     }
 }
 

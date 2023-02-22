@@ -15,6 +15,7 @@ void Utente::detach(Subject* list) {
 }
 
 void Utente::update(Subject *list, std::string& s) {
+    std::cout << s << std::endl;
 
 }
 
@@ -50,6 +51,14 @@ void Utente::modify(ListaSpesa *l, Prodotto &p, int q) {
 
 void Utente::displayList(ListaSpesa *l) {
     l->display();
+}
+
+const std::string &Utente::getName() const {
+    return name;
+}
+
+void Utente::setName(const std::string &name) {
+    Utente::name = name;
 }
 
 

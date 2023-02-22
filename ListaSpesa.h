@@ -8,13 +8,15 @@
 #include <iostream>
 #include <list>
 #include <algorithm>
+#include <iomanip>
 #include "Subject.h"
 #include "Prodotto.h"
 #include "Observer.h"
 
+
 class ListaSpesa : public Subject{
 public:
-    explicit ListaSpesa(std::string& n): name(n){};
+    explicit ListaSpesa(std::string n): name(n){};
 
     void addProd(Prodotto& p, std::string u);
 
