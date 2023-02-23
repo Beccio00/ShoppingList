@@ -83,4 +83,8 @@ void ListaSpesa::display() {
     }
 }
 
+int ListaSpesa::getSize() {
+    return products.size();
+}
+
 

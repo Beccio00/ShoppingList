@@ -37,7 +37,6 @@ public:
 private:
     std::string name;
     std::list<Subject*> subjects;
-
 };
 
 

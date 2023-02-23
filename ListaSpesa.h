@@ -36,6 +36,8 @@ public:
 
     void display();
 
+    int getSize();
+
 
 
 
