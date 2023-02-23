@@ -34,6 +34,8 @@ public:
 
     void setName(const std::string &name);
 
+    int getSize() const;
+
     void display();
 
 

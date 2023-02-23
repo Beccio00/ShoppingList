@@ -83,4 +83,9 @@ void ListaSpesa::display() {
     }
 }
 
+int ListaSpesa::getSize() const {
+    int n = products.size();
+    return n;
+}
+
 
