@@ -18,10 +18,12 @@ TEST(UtenteTest, AddRemove){
     ListaSpesa l("La Mia Lista");
     Utente u("Marco");
 
+    u.attach(&l);
+
     u.add(&l, p);
     ASSERT_EQ(l.getSize(), 1);
 
-    //u.remove(&l, p);
-    //ASSERT_EQ(l.getSize(), 0);
+    u.remove(&l, p);
+    ASSERT_EQ(l.getSize(), 0);
 }
 
