@@ -47,8 +47,6 @@ int main() {
     cin >> name;
     Utente u(name);
 
-    cout << l.getSize() << endl;
-
 
 
 
