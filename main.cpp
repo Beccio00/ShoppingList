@@ -37,9 +37,9 @@ int main() {
     u1.attach(&l);
     u2.attach(&l);
 
-    u1.add(&l, p1);
-    u2.add(&l, p2);
-    u1.add(&l, p3);
+    u1.add(&l, &p1);
+    u2.add(&l, &p2);
+    u1.add(&l, &p3);
 
     u1.displayList(&l);
 

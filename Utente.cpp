@@ -19,7 +19,7 @@ void Utente::update(Subject *list, std::string& s) {
 
 }
 
-void Utente::add(ListaSpesa *l, Prodotto& p) {
+void Utente::add(ListaSpesa *l, Prodotto* p) {
     auto it = std::find(subjects.begin(), subjects.end(), l);
 
     if(it != subjects.end()){
@@ -29,7 +29,7 @@ void Utente::add(ListaSpesa *l, Prodotto& p) {
     }
 }
 
-void Utente::remove(ListaSpesa *l, Prodotto &p) {
+void Utente::remove(ListaSpesa *l, Prodotto* p) {
     auto it = std::find(subjects.begin(), subjects.end(), l);
 
     if(it != subjects.end()){
@@ -39,7 +39,7 @@ void Utente::remove(ListaSpesa *l, Prodotto &p) {
     }
 }
 
-void Utente::modify(ListaSpesa *l, Prodotto &p, int q) {
+void Utente::modify(ListaSpesa *l, Prodotto* p, int q) {
     auto it = std::find(subjects.begin(), subjects.end(), l);
 
     if(q>0){

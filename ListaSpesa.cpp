@@ -4,12 +4,12 @@
 
 #include "ListaSpesa.h"
 
-void ListaSpesa::addProd(Prodotto& p, std::string u) {
+void ListaSpesa::addProd(Prodotto* p, std::string u) {
     products.push_back(p);
     notify(1, u);
 }
 
-void ListaSpesa::removeProd(Prodotto& p, std::string u) {
+void ListaSpesa::removeProd(Prodotto* p, std::string u) {
     auto it = std::find(products.begin(),products.end(),p);
 
     if(it != products.end()) {
@@ -20,11 +20,11 @@ void ListaSpesa::removeProd(Prodotto& p, std::string u) {
     }
 }
 
-void ListaSpesa::modifyQuantity(Prodotto &p, int q, std::string u) {
+void ListaSpesa::modifyQuantity(Prodotto* p, int q, std::string u) {
     auto it = std::find(products.begin(),products.end(),p);
 
     if(it != products.end()){
-        it->setQuantity(q);
+        (*it)->setQuantity(q);
         notify(3, u);
     }
     else{
@@ -77,8 +77,8 @@ void ListaSpesa::display() {
     std::cout << "        Prodotto            Categoria          Quantità" << std::endl;
     for(auto it:products){
         std::cout << std::endl;
-        std::cout << "  "<< i  << "     "<< std::left << std::setw(20) << it.getName()<<std::setw(20)
-            <<it.getCategory()<<  it.getQuantity() << std::endl;
+        std::cout << "  "<< i  << "     "<< std::left << std::setw(20) << it->getName()<<std::setw(20)
+            <<it->getCategory()<<  it->getQuantity() << std::endl;
         i++;
     }
 }
@@ -86,5 +86,10 @@ void ListaSpesa::display() {
 int ListaSpesa::getSize() {
     return products.size();
 }
+
+const std::list<Prodotto *> &ListaSpesa::getProducts() const {
+    return products;
+}
+
 
 

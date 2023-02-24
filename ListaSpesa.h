@@ -18,11 +18,11 @@ class ListaSpesa : public Subject{
 public:
     explicit ListaSpesa(std::string n): name(n){};
 
-    void addProd(Prodotto& p, std::string u);
+    void addProd(Prodotto* p, std::string u);
 
-    void removeProd(Prodotto& p, std::string u);
+    void removeProd(Prodotto* p, std::string u);
 
-    void modifyQuantity(Prodotto& p, int q, std::string u);
+    void modifyQuantity(Prodotto* p, int q, std::string u);
 
     void subscribe(Observer* o) override;
 
@@ -38,12 +38,12 @@ public:
 
     int getSize();
 
-
+    const std::list<Prodotto *> &getProducts() const;
 
 
 private:
     std::string name;
-    std::list<Prodotto> products;
+    std::list<Prodotto* > products;
     std::list<Observer*> observers;
 };
 

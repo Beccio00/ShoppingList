@@ -37,10 +37,10 @@ TEST_F(UtenteTest, GetterSetter){
 TEST_F(UtenteTest, AddRemove){
     Prodotto p("Prosciutto", "Affettati", 2);
 
-    u->add(l1, p);
+    u->add(l1, &p);
     ASSERT_EQ(l1->getSize(), 1);
 
-    u->remove(l1, p);
+    u->remove(l1, &p);
     ASSERT_EQ(l1->getSize(), 0);
 }
 

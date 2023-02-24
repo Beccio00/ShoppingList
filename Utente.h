@@ -21,11 +21,11 @@ public:
 
     void update(Subject* list, std::string& s) override;
 
-    void add(ListaSpesa* l, Prodotto& p);
+    void add(ListaSpesa* l, Prodotto* p);
 
-    void remove(ListaSpesa* l, Prodotto& p);
+    void remove(ListaSpesa* l, Prodotto* p);
 
-    void modify(ListaSpesa* l, Prodotto& p, int q);
+    void modify(ListaSpesa* l, Prodotto* p, int q);
 
     void displayList(ListaSpesa* l);
 
