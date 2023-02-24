@@ -22,6 +22,7 @@ protected:
     Prodotto p3 = Prodotto("Insalata", "Oraraggi", 4 );
 };
 
+
 TEST_F(ListaSpesaTest, addProd) {
 
     l.addProd(&p3, "Utente1");
