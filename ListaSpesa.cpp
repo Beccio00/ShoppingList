@@ -24,8 +24,19 @@ void ListaSpesa::modifyQuantity(Prodotto* p, int q, std::string u) {
     auto it = std::find(products.begin(),products.end(),p);
 
     if(it != products.end()){
-        (*it)->setQuantity(q);
-        notify(3, u);
+        if(q>0) {
+            (*it)->setQuantity(q);
+            notify(3, u);
+        }
+        else if(q==0){
+            buyProd(p,u);
+        } else{
+            std::cout << "La quantità da modificare del prodotto non è valida, riprovare con una nuova quantità: " << std::endl;
+            std::cin >> q;
+            modifyQuantity(p, q, u);
+        }
+
+
     }
     else{
         std::cout << "Il prodotto selezionato non è presente nella lista " << this->name << std::endl;
@@ -44,7 +55,7 @@ void ListaSpesa::unsubscribe(Observer* o) {
 void ListaSpesa::notify(int num, std::string u) {
     std::string s;
 
-    switch (num) {
+    switch(num) {
         case 1:
             s = "Nella lista della spesa " + this->name + " è stato aggiunto un prodotto da " + u;
             break;
@@ -53,6 +64,9 @@ void ListaSpesa::notify(int num, std::string u) {
             break;
         case 3:
             s = "Nella lista della spesa " + this->name + " è stata cambiata la quantità da comprare di un prodotto da " + u;
+            break;
+        case 4:
+            s = "Nella lista della spesa " + this->name + " è stato comprato un prodotto da " +u;
     }
 
     for(auto it: observers) {
@@ -74,12 +88,20 @@ void ListaSpesa::display() {
     std::cout << std::endl;
     std::cout << this->name << std::endl;
     std::cout << std::endl;
-    std::cout << "        Prodotto            Categoria          Quantità" << std::endl;
+    std::cout << "        Prodotto            Categoria          Quantità          " << std::endl;
     for(auto it:products){
-        std::cout << std::endl;
-        std::cout << "  "<< i  << "     "<< std::left << std::setw(20) << it->getName()<<std::setw(20)
-            <<it->getCategory()<<  it->getQuantity() << std::endl;
-        i++;
+        if((*it).isBought1()){
+            std::cout << std::endl;
+            std::cout << "   ✓    "<< std::left << std::setw(20) << it->getName()<<std::setw(20)
+                      <<it->getCategory()<<  it->getQuantity() <<   std::endl;
+            i++;}
+        else{
+            std::cout << std::endl;
+            std::cout << "   -    "<< std::left << std::setw(20) << it->getName()<<std::setw(20)
+                      <<it->getCategory()<<  it->getQuantity() << std::endl;
+            i++;
+        }
+
     }
 }
 
@@ -89,6 +111,22 @@ int ListaSpesa::getSize() {
 
 const std::list<Prodotto *> &ListaSpesa::getProducts() const {
     return products;
+}
+
+void ListaSpesa::buyProd(Prodotto* p, std::string u) {
+    auto it = std::find(products.begin(),products.end(),p);
+
+    if(it != products.end()) {
+        if(!(*it)->isBought1()) {
+            (*it)->setIsBought(true);
+            notify(4,u);
+        } else{
+            std::cout << "Il prodotto selezionato è già stato comprato" << std::endl;
+        }
+
+    } else{
+        std::cout << "Il prodotto selezionato non è presente nella lista " << this->name << std::endl;
+    }
 }
 
 

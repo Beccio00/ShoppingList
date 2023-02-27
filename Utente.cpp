@@ -42,15 +42,13 @@ void Utente::remove(ListaSpesa *l, Prodotto* p) {
 void Utente::modify(ListaSpesa *l, Prodotto* p, int q) {
     auto it = std::find(subjects.begin(), subjects.end(), l);
 
-    if(q>0){
-        if(it != subjects.end())
-            l->modifyQuantity(p, q, this->name);
-        else
-            std::cout << "La lista della spesa" << l->getName() << "non è presente nelle tue liste" << std::endl;
 
-    }else{
-        std::cerr << "È stato inserito un valore non valido di prodotti" << std::endl;
-    }
+    if(it != subjects.end())
+        l->modifyQuantity(p, q, this->name);
+    else
+        std::cout << "La lista della spesa" << l->getName() << "non è presente nelle tue liste" << std::endl;
+
+
 }
 
 void Utente::displayList(ListaSpesa *l) {
@@ -67,6 +65,10 @@ void Utente::setName(const std::string &name) {
 
 const std::list<Subject *> &Utente::getSubjects() const {
     return subjects;
+}
+
+void Utente::buy(ListaSpesa *l, Prodotto *p) {
+
 }
 
 

@@ -11,3 +11,11 @@ bool Prodotto::operator==(const Prodotto &p) {
         return false;
 }
 
+bool Prodotto::isBought1() const {
+    return isBought;
+}
+
+void Prodotto::setIsBought(bool isBought) {
+    Prodotto::isBought = isBought;
+}
+

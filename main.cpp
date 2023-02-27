@@ -13,7 +13,6 @@ using namespace std;
 
 int main() {
 
-    string name;
     std::string name1 = "Mario";
     std::string name2 = "Alice";
 
@@ -27,6 +26,8 @@ int main() {
     Prodotto p1(product1,category1, 3);
     Prodotto p2(product2, category2, 12);
     Prodotto p3(product3, category1, 2);
+
+    p1.setIsBought(true);
 
     Utente u1(name1);
     Utente u2(name2);
@@ -44,8 +45,8 @@ int main() {
     u1.displayList(&l);
 
     cout << "Inserisci il tuo nome" << endl;
-    cin >> name;
-    Utente u(name);
+
+
 
 
 

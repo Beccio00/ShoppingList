@@ -24,6 +24,8 @@ public:
 
     void modifyQuantity(Prodotto* p, int q, std::string u);
 
+    void buyProd(Prodotto* p, std::string u);
+
     void subscribe(Observer* o) override;
 
     void unsubscribe(Observer* o) override;
@@ -39,6 +41,8 @@ public:
     int getSize();
 
     const std::list<Prodotto *> &getProducts() const;
+
+
 
 
 private:

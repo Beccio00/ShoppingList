@@ -27,6 +27,8 @@ public:
 
     void modify(ListaSpesa* l, Prodotto* p, int q);
 
+    void buy(ListaSpesa* l, Prodotto* p);
+
     void displayList(ListaSpesa* l);
 
     const std::string &getName() const;

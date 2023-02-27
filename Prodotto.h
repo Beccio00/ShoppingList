@@ -8,7 +8,7 @@
 #include <iostream>
 
 
-//TODO: Mettere se il prodotto è stato comprato o meno
+
 class Prodotto {
 public:
     Prodotto(std::string n, std::string c, int q): name(n), category(c), quantity(q) {}
@@ -31,7 +31,12 @@ public:
         quantity = q;
     }
 
+    bool isBought1() const;
+
+    void setIsBought(bool isBought);
+
 private:
+    bool isBought = false;
     std::string name;
     std::string category;
     int quantity;
