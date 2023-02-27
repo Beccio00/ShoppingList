@@ -68,7 +68,13 @@ const std::list<Subject *> &Utente::getSubjects() const {
 }
 
 void Utente::buy(ListaSpesa *l, Prodotto *p) {
+    auto it = std::find(subjects.begin(), subjects.end(), l);
 
+    if(it != subjects.end()){
+        l->buyProd(p, this->name);
+    } else{
+        std::cout << "La lista della spesa" << l->getName() << "non è presente nelle tue liste" << std::endl;
+    }
 }
 
 

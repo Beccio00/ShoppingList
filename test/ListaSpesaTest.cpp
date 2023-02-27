@@ -4,6 +4,8 @@
 #include "gtest/gtest.h"
 #include "../ListaSpesa.h"
 
+
+//TODO inserire il test per buyProd
 class ListaSpesaTest : public ::testing::Test {
 public:
 
