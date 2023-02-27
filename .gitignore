@@ -32,3 +32,5 @@
 *.app
 
 *lib
+
+*cmake-build-debug
