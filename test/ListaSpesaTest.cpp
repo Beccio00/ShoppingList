@@ -6,13 +6,10 @@
 
 class ListaSpesaTest : public ::testing::Test {
 public:
+
     void SetUp() override {
-
-
         l.addProd(&p1, "Utente1");
         l.addProd(&p2,"Utente2");
-
-
     }
 
 protected:

@@ -33,6 +33,7 @@ public:
 
     void setName(const std::string &name);
 
+    const std::list<Subject *> &getSubjects() const;
 
 private:
     std::string name;

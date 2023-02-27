@@ -9,40 +9,37 @@
 class UtenteTest : public ::testing::Test {
 public:
     void SetUp() override {
-        l1 = new ListaSpesa("Lista1");
-        l2 = new ListaSpesa("Lista2");
-        u = new Utente("Riccardo");
-        u->attach(l1);
-        u->attach(l2);
+        u.attach(&l1);
     }
 
-    void TearDown() override {
-        delete l1;
-        delete l2;
-        delete u;
-    }
-
-    ListaSpesa* l1;
-    ListaSpesa* l2;
-    Utente* u;
+protected:
+    Prodotto p = Prodotto("Latte", "Latticino", 2);
+    ListaSpesa l1 =  ListaSpesa("Lista1");
+    ListaSpesa l2= ListaSpesa("Lista2");
+    Utente u = Utente("Riccardo");
 
 };
 
 TEST_F(UtenteTest, GetterSetter){
-    ASSERT_EQ(u->getName(), "Riccardo");
-    u->setName("Marco");
-    ASSERT_EQ(u->getName(), "Marco");
+    ASSERT_EQ(u.getName(), "Riccardo");
+    u.setName("Marco");
+    ASSERT_EQ(u.getName(), "Marco");
 }
 
 TEST_F(UtenteTest, AddRemove){
-    Prodotto p("Prosciutto", "Affettati", 2);
 
-    u->add(l1, &p);
-    ASSERT_EQ(l1->getSize(), 1);
+    u.add(&l1, &p);
+    ASSERT_EQ(l1.getSize(), 1);
 
-    u->remove(l1, &p);
-    ASSERT_EQ(l1->getSize(), 0);
+    u.remove(&l1, &p);
+    ASSERT_EQ(l1.getSize(), 0);
 }
 
+TEST_F(UtenteTest, AttachDetach) {
+    u.attach(&l2);
+    ASSERT_EQ(u.getSubjects().size(), 2);
 
+    u.detach(&l2);
+    ASSERT_EQ(u.getSubjects().size(), 1);
+}
 

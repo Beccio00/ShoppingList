@@ -65,4 +65,8 @@ void Utente::setName(const std::string &name) {
     Utente::name = name;
 }
 
+const std::list<Subject *> &Utente::getSubjects() const {
+    return subjects;
+}
+
 
