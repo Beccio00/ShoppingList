@@ -86,6 +86,7 @@ void ListaSpesa::display() {
     int i = 1;
 
     std::cout << std::endl;
+    std::cout << std::endl;
     std::cout << this->name << std::endl;
     std::cout << std::endl;
     std::cout << "        Prodotto            Categoria          Quantità          " << std::endl;
@@ -103,6 +104,8 @@ void ListaSpesa::display() {
         }
 
     }
+
+    std::cout << std::endl;
 }
 
 int ListaSpesa::getSize() {

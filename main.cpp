@@ -13,43 +13,40 @@ using namespace std;
 
 int main() {
 
-    std::string name1 = "Mario";
-    std::string name2 = "Alice";
+    ListaSpesa l1("My List 1");
+    ListaSpesa l2("My List 2");
 
-    std::string product1 = "Parmigiano";
-    std::string product2 = "Mele";
-    std::string product3 = "Latte";
+    Utente u1("Bob");
+    Utente u2("Alice");
 
-    std::string category1 = "Latticino";
-    std::string category2 = "Frutta";
+    Prodotto p1("Latte", "Latticio", 3);
+    Prodotto p2("Pasta", "Carboidrato", 4);
+    Prodotto p3("Arancie", "Frutta", 6);
+    Prodotto p4("Sale", "Spezia", 1);
+    Prodotto p5("Succo", "Bevande", 4);
+    Prodotto p6("Tè", "Bevande", 2);
 
-    Prodotto p1(product1,category1, 3);
-    Prodotto p2(product2, category2, 12);
-    Prodotto p3(product3, category1, 2);
+    u1.attach(&l1);
+    u1.attach(&l2);
+    u2.attach(&l1);
+    u2.attach(&l2);
 
-    p1.setIsBought(true);
+    u1.add(&l1, &p1);
+    u2.add(&l2, &p2);
+    u2.add(&l1, &p3);
+    u1.add(&l1, &p4);
+    u2.remove(&l1, &p1);
+    u1.add(&l1, &p5);
+    u2.add(&l2, &p5);
+    u1.add(&l2, &p6);
 
-    Utente u1(name1);
-    Utente u2(name2);
+    u1.displayList(&l1);
+    u2.displayList(&l2);
 
+    u1.buy(&l1, &p3);
+    u2.buy(&l1, &p4);
 
-    ListaSpesa l("mylist");
-
-    u1.attach(&l);
-    u2.attach(&l);
-
-    u1.add(&l, &p1);
-    u2.add(&l, &p2);
-    u1.add(&l, &p3);
-
-    u1.displayList(&l);
-
-    cout << "Inserisci il tuo nome" << endl;
-
-
-
-
-
+    u1.displayList(&l1);
 
 
 

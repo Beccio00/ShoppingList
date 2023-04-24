@@ -5,7 +5,7 @@
 #include "../ListaSpesa.h"
 
 
-//TODO inserire il test per buyProd
+
 class ListaSpesaTest : public ::testing::Test {
 public:
 
@@ -40,4 +40,10 @@ TEST_F(ListaSpesaTest, modify){
     auto it = l.getProducts().begin();
     ASSERT_EQ(l.getSize(), 2);
     ASSERT_EQ((*it)->getQuantity(), 4);
+}
+
+TEST_F(ListaSpesaTest, buyProd) {
+    l.buyProd(&p1, "Utente2");
+    auto it = l.getProducts().begin();
+    ASSERT_TRUE((*it)->isBought1());
 }
