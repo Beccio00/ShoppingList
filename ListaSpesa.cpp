@@ -29,7 +29,7 @@ void ListaSpesa::modifyQuantity(Prodotto* p, int q, std::string u) {
             notify(3, u);
         }
         else if(q==0){
-            buyProd(p,u);
+            removeProd(p,u);
         } else{
             std::cout << "La quantità da modificare del prodotto non è valida, riprovare con una nuova quantità: " << std::endl;
             std::cin >> q;
@@ -66,7 +66,7 @@ void ListaSpesa::notify(int num, std::string u) {
             s = "Nella lista della spesa " + this->name + " è stata cambiata la quantità da comprare di un prodotto da " + u;
             break;
         case 4:
-            s = "Nella lista della spesa " + this->name + " è stato comprato un prodotto da " +u;
+            s = "Nella lista della spesa " + this->name + " è stato comprato un prodotto da " + u;
     }
 
     for(auto it: observers) {

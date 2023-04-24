@@ -1,8 +1,3 @@
-/*Classi che rappresentano una lista della spesa (es. Listonic): un utente deve avere diverse
- * liste della spesa dove segnare oggetti da acquistare che appartengono a diverse categorie ed
- * eventualmente con quantità da acquistare. Is usa Observer per aggiornare il numero di
- * oggetti da acquistare in una lista e quali questi siano. Si possono o avere più utenti che
- * condividono la stessa lista*/
 
 #include <iostream>
 #include "Utente.h"
@@ -45,6 +40,7 @@ int main() {
 
     u1.buy(&l1, &p3);
     u2.buy(&l1, &p4);
+    u1.modify(&l1, &p3, 2);
 
     u1.displayList(&l1);
 
