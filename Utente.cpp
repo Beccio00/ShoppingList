@@ -14,7 +14,7 @@ void Utente::detach(Subject* list) {
     list->unsubscribe(this);
 }
 
-void Utente::update(Subject *list, std::string& s) {
+void Utente::update(std::string& s) {
     std::cout << s << std::endl;
 
 }

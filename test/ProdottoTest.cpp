@@ -23,7 +23,7 @@ TEST(ProdottoTest, Setter) {
 
 TEST(ProdottoTest, Operator) {
     Prodotto p1 = Prodotto("Mele", "Frutta", 10);
-    Prodotto p2 = Prodotto("Mele", "Frutta", 10);
+    Prodotto p2 = Prodotto("Mele", "Frutta", 12);
     Prodotto p3 = Prodotto("Latte", "Latticino", 2);
 
     ASSERT_TRUE(p1 == p2);

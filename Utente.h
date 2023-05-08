@@ -19,7 +19,7 @@ public:
 
     void detach(Subject* list) override;
 
-    void update(Subject* list, std::string& s) override;
+    void update(std::string& s) override;
 
     void add(ListaSpesa* l, Prodotto* p);
 

@@ -31,9 +31,13 @@ public:
         quantity = q;
     }
 
-    bool isBought1() const;
+    bool isBought1() {
+        return isBought;
+    };
 
-    void setIsBought(bool isBought);
+    void setIsBought(bool isBought) {
+        Prodotto::isBought = isBought;
+    };
 
 private:
     bool isBought = false;
