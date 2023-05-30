@@ -16,21 +16,21 @@
 
 class ListaSpesa : public Subject{
 public:
-    explicit ListaSpesa(std::string n): name(n){};
+    explicit ListaSpesa(const std::string& n): name(n){};
 
-    void addProd(Prodotto* p, std::string u);
+    void addProd(Prodotto* p, const std::string& u);
 
-    void removeProd(Prodotto* p, std::string u);
+    void removeProd(Prodotto* p, const std::string& u);
 
-    void modifyQuantity(Prodotto* p, int q, std::string u);
+    void modifyQuantity(Prodotto* p, int q, const std::string& u);
 
-    void buyProd(Prodotto* p, std::string u);
+    void buyProd(Prodotto* p, const std::string& u);
 
     void subscribe(Observer* o) override;
 
     void unsubscribe(Observer* o) override;
 
-    void notify(int num, std::string u) override;
+    void notify(int num, const std::string& u) override;
 
     const std::string &getName() const;
 

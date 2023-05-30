@@ -7,7 +7,6 @@
 using namespace std;
 
 int main() {
-
     ListaSpesa l1("My List 1");
     ListaSpesa l2("My List 2");
 
@@ -43,8 +42,6 @@ int main() {
     u1.modify(&l1, &p3, 2);
 
     u1.displayList(&l1);
-
-
 
     return 0;
 }

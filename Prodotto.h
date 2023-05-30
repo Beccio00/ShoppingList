@@ -31,7 +31,7 @@ public:
         quantity = q;
     }
 
-    bool isBought1() {
+    const bool isBought1() {
         return isBought;
     };
 

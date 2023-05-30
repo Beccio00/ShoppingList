@@ -14,9 +14,8 @@ void Utente::detach(Subject* list) {
     list->unsubscribe(this);
 }
 
-void Utente::update(std::string& s) {
+void Utente::update(const std::string& s) {
     std::cout << s << std::endl;
-
 }
 
 void Utente::add(ListaSpesa *l, Prodotto* p) {

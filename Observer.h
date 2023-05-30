@@ -12,7 +12,7 @@ class Subject;
 class Observer {
 public:
     virtual ~Observer() {};
-    virtual void update(std::string& s) = 0;
+    virtual void update(const std::string& s) = 0;
     virtual void attach(Subject* list) = 0;
     virtual void detach(Subject* list) = 0;
 };

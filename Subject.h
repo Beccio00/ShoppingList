@@ -11,7 +11,7 @@ public:
     virtual ~Subject() {};
     virtual void subscribe(Observer* o) = 0;
     virtual void unsubscribe(Observer* o) = 0;
-    virtual void notify(int num, std::string u) = 0;
+    virtual void notify(int num, const std::string& u) = 0;
 };
 
 #endif //PROJECTLAB_SUBJECT_H
