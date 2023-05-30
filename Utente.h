@@ -10,6 +10,7 @@
 #include <iostream>
 #include <list>
 #include <algorithm>
+#include <memory>
 
 class Utente : public Observer{
 public:
@@ -21,15 +22,15 @@ public:
 
     void update(const std::string& s) override;
 
-    void add(ListaSpesa* l, Prodotto* p);
+    void add(std::shared_ptr<ListaSpesa> l, std::shared_ptr<Prodotto> p);
 
-    void remove(ListaSpesa* l, Prodotto* p);
+    void remove(std::shared_ptr<ListaSpesa> l, std::shared_ptr<Prodotto> p);
 
-    void modify(ListaSpesa* l, Prodotto* p, int q);
+    void modify(std::shared_ptr<ListaSpesa> l, std::shared_ptr<Prodotto> p, int q);
 
-    void buy(ListaSpesa* l, Prodotto* p);
+    void buy(std::shared_ptr<ListaSpesa> l, std::shared_ptr<Prodotto> p);
 
-    void displayList(ListaSpesa* l);
+    void displayList(std::shared_ptr<ListaSpesa> l);
 
     const std::string &getName() const;
 

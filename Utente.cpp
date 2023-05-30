@@ -18,7 +18,7 @@ void Utente::update(const std::string& s) {
     std::cout << s << std::endl;
 }
 
-void Utente::add(ListaSpesa *l, Prodotto* p) {
+void Utente::add(std::shared_ptr<ListaSpesa> l, std::shared_ptr<Prodotto> p) {
     auto it = std::find(subjects.begin(), subjects.end(), l);
 
     if(it != subjects.end()){
@@ -28,7 +28,7 @@ void Utente::add(ListaSpesa *l, Prodotto* p) {
     }
 }
 
-void Utente::remove(ListaSpesa *l, Prodotto* p) {
+void Utente::remove(std::shared_ptr<ListaSpesa> l, std::shared_ptr<Prodotto> p) {
     auto it = std::find(subjects.begin(), subjects.end(), l);
 
     if(it != subjects.end()){
@@ -38,7 +38,7 @@ void Utente::remove(ListaSpesa *l, Prodotto* p) {
     }
 }
 
-void Utente::modify(ListaSpesa *l, Prodotto* p, int q) {
+void Utente::modify(std::shared_ptr<ListaSpesa> l, std::shared_ptr<Prodotto> p, int q) {
     auto it = std::find(subjects.begin(), subjects.end(), l);
 
 
@@ -50,7 +50,7 @@ void Utente::modify(ListaSpesa *l, Prodotto* p, int q) {
 
 }
 
-void Utente::displayList(ListaSpesa *l) {
+void Utente::displayList(std::shared_ptr<ListaSpesa>l) {
     l->display();
 }
 
@@ -66,7 +66,7 @@ const std::list<Subject *> &Utente::getSubjects() const {
     return subjects;
 }
 
-void Utente::buy(ListaSpesa *l, Prodotto *p) {
+void Utente::buy(std::shared_ptr<ListaSpesa> l, std::shared_ptr<Prodotto> p) {
     auto it = std::find(subjects.begin(), subjects.end(), l);
 
     if(it != subjects.end()){
