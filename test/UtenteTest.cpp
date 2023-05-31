@@ -9,16 +9,16 @@
 class UtenteTest : public ::testing::Test {
 public:
     void SetUp() override {
-        u.attach(&l1);
-        u.add(&l1, &p1);
+        u.attach(l1.get());
+        u.add(l1, p1);
     }
 
 protected:
-    Prodotto p1 = Prodotto("Uova", "Proteine", 6);
-    Prodotto p2 = Prodotto("Latte", "Latticino", 2);
+    std::shared_ptr<Prodotto> p1 = std::make_shared<Prodotto>("Uova", "Proteine", 6);
+    std::shared_ptr<Prodotto> p2 = std::make_shared<Prodotto>("Latte", "Latticino", 2);
 
-    ListaSpesa l1 =  ListaSpesa("Lista1");
-    ListaSpesa l2= ListaSpesa("Lista2");
+    std::shared_ptr<ListaSpesa> l1 =  std::make_shared<ListaSpesa>("Lista1");
+    std::shared_ptr<ListaSpesa> l2= std::make_shared<ListaSpesa>("Lista2");
     Utente u = Utente("Riccardo");
 
 };
@@ -31,24 +31,24 @@ TEST_F(UtenteTest, GetterSetter){
 
 TEST_F(UtenteTest, AddRemove){
 
-    u.add(&l1, &p2);
-    ASSERT_EQ(l1.getSize(), 2);
+    u.add(l1, p2);
+    ASSERT_EQ(l1->getSize(), 2);
 
-    u.remove(&l1, &p2);
-    ASSERT_EQ(l1.getSize(), 1);
+    u.remove(l1, p2);
+    ASSERT_EQ(l1->getSize(), 1);
 }
 
 TEST_F(UtenteTest, AttachDetach) {
-    u.attach(&l2);
+    u.attach(l2.get());
     ASSERT_EQ(u.getSubjects().size(), 2);
 
-    u.detach(&l2);
+    u.detach(l2.get());
     ASSERT_EQ(u.getSubjects().size(), 1);
 }
 
 TEST_F(UtenteTest, Buy) {
-    u.buy(&l1, &p1);
+    u.buy(l1, p1);
 
-    ASSERT_TRUE(p1.isBought1());
+    ASSERT_TRUE(p1->isBought1());
 }
 

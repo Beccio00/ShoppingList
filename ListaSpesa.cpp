@@ -129,7 +129,7 @@ int ListaSpesa::getSize() {
     return products.size();
 }
 
-const std::list<Prodotto *> &ListaSpesa::getProducts() const {
+const std::list<std::shared_ptr<Prodotto>> &ListaSpesa::getProducts() const {
     return products;
 }
 

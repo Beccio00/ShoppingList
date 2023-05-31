@@ -41,14 +41,14 @@ public:
 
     int getSize();
 
-    const std::list<Prodotto *> &getProducts() const;
+    const std::list<std::shared_ptr<Prodotto>> &getProducts() const;
 
 
 
 
 private:
     std::string name;
-    std::list<std::shared_ptr<Prodotto> > products;
+    std::list<std::shared_ptr<Prodotto>> products;
     std::list<Observer*> observers;
 };
 
