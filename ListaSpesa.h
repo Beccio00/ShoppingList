@@ -9,6 +9,7 @@
 #include <list>
 #include <algorithm>
 #include <iomanip>
+#include <memory>
 #include "Subject.h"
 #include "Prodotto.h"
 #include "Observer.h"
@@ -18,13 +19,13 @@ class ListaSpesa : public Subject{
 public:
     explicit ListaSpesa(const std::string& n): name(n){};
 
-    void addProd(Prodotto* p, const std::string& u);
+    void addProd(std::shared_ptr<Prodotto> p, const std::string& u);
 
-    void removeProd(Prodotto* p, const std::string& u);
+    void removeProd(std::shared_ptr<Prodotto> p, const std::string& u);
 
-    void modifyQuantity(Prodotto* p, int q, const std::string& u);
+    void modifyQuantity(std::shared_ptr<Prodotto> p, int q, const std::string& u);
 
-    void buyProd(Prodotto* p, const std::string& u);
+    void buyProd(std::shared_ptr<Prodotto> p, const std::string& u);
 
     void subscribe(Observer* o) override;
 
@@ -47,7 +48,7 @@ public:
 
 private:
     std::string name;
-    std::list<Prodotto* > products;
+    std::list<std::shared_ptr<Prodotto> > products;
     std::list<Observer*> observers;
 };
 

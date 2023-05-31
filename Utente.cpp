@@ -19,7 +19,10 @@ void Utente::update(const std::string& s) {
 }
 
 void Utente::add(std::shared_ptr<ListaSpesa> l, std::shared_ptr<Prodotto> p) {
-    auto it = std::find(subjects.begin(), subjects.end(), l);
+    auto it = std::find_if(subjects.begin(), subjects.end(), [&l](Subject* subj) {
+        return dynamic_cast<ListaSpesa*>(subj) == l.get();
+    });
+
 
     if(it != subjects.end()){
         l->addProd(p, this->name);
@@ -29,7 +32,10 @@ void Utente::add(std::shared_ptr<ListaSpesa> l, std::shared_ptr<Prodotto> p) {
 }
 
 void Utente::remove(std::shared_ptr<ListaSpesa> l, std::shared_ptr<Prodotto> p) {
-    auto it = std::find(subjects.begin(), subjects.end(), l);
+     auto it = std::find_if(subjects.begin(), subjects.end(), [&l](Subject* subj) {
+        return dynamic_cast<ListaSpesa*>(subj) == l.get();
+    });
+
 
     if(it != subjects.end()){
         l->removeProd(p, this->name);
@@ -39,7 +45,10 @@ void Utente::remove(std::shared_ptr<ListaSpesa> l, std::shared_ptr<Prodotto> p) 
 }
 
 void Utente::modify(std::shared_ptr<ListaSpesa> l, std::shared_ptr<Prodotto> p, int q) {
-    auto it = std::find(subjects.begin(), subjects.end(), l);
+     auto it = std::find_if(subjects.begin(), subjects.end(), [&l](Subject* subj) {
+        return dynamic_cast<ListaSpesa*>(subj) == l.get();
+    });
+
 
 
     if(it != subjects.end())
@@ -67,7 +76,10 @@ const std::list<Subject *> &Utente::getSubjects() const {
 }
 
 void Utente::buy(std::shared_ptr<ListaSpesa> l, std::shared_ptr<Prodotto> p) {
-    auto it = std::find(subjects.begin(), subjects.end(), l);
+     auto it = std::find_if(subjects.begin(), subjects.end(), [&l](Subject* subj) {
+        return dynamic_cast<ListaSpesa*>(subj) == l.get();
+    });
+
 
     if(it != subjects.end()){
         l->buyProd(p, this->name);

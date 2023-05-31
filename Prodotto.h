@@ -11,7 +11,7 @@
 
 class Prodotto {
 public:
-    Prodotto(std::string n, std::string c, int q): name(n), category(c), quantity(q) {}
+    Prodotto(const std::string& n, const std::string& c, int q): name(n), category(c), quantity(q) {}
 
     bool operator == (const Prodotto& p);
 

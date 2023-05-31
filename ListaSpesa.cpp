@@ -4,12 +4,12 @@
 
 #include "ListaSpesa.h"
 
-void ListaSpesa::addProd(Prodotto* p, const std::string& u) {
+void ListaSpesa::addProd(std::shared_ptr<Prodotto> p, const std::string& u) {
     products.push_back(p);
     notify(1, u);
 }
 
-void ListaSpesa::removeProd(Prodotto* p, const std::string& u) {
+void ListaSpesa::removeProd(std::shared_ptr<Prodotto> p, const std::string& u) {
     auto it = std::find(products.begin(),products.end(),p);
 
     if(it != products.end()) {
@@ -20,7 +20,7 @@ void ListaSpesa::removeProd(Prodotto* p, const std::string& u) {
     }
 }
 
-void ListaSpesa::modifyQuantity(Prodotto* p, int q, const std::string& u) {
+void ListaSpesa::modifyQuantity(std::shared_ptr<Prodotto> p, int q, const std::string& u) {
     auto it = std::find(products.begin(),products.end(),p);
 
     if(it != products.end()){
@@ -43,7 +43,7 @@ void ListaSpesa::modifyQuantity(Prodotto* p, int q, const std::string& u) {
     }
 }
 
-void ListaSpesa::buyProd(Prodotto* p, const std::string& u) {
+void ListaSpesa::buyProd(std::shared_ptr<Prodotto> p, const std::string& u) {
     auto it = std::find(products.begin(),products.end(),p);
 
     if(it != products.end()) {
