@@ -64,3 +64,9 @@ TEST_F(UtenteTest, Modify) {
 
     ASSERT_EQ(u.modify(l2, p1, 4), 1);
 }
+
+TEST_F(UtenteTest, DisplayList) {
+    ASSERT_EQ(u.displayList(l1), 0);
+
+    ASSERT_EQ(u.displayList(l2), 1);
+}

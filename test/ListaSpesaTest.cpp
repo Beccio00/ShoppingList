@@ -30,20 +30,28 @@ TEST_F(ListaSpesaTest, addProd) {
 
 TEST_F(ListaSpesaTest, removeProd) {
 
-    l.removeProd(p1, "Utenete2");
+    ASSERT_EQ(l.removeProd(p1, "Utenete2"), 0);
     ASSERT_EQ(l.getSize(), 1);
+
+    ASSERT_EQ(l.removeProd(p3, "Utente2"), 1);
 
 }
 
 TEST_F(ListaSpesaTest, modify){
-    l.modifyQuantity(p1, 4, "Utente1");
+    ASSERT_EQ(l.modifyQuantity(p1, 4, "Utente1"), 0);
     auto it = l.getProducts().begin();
+
     ASSERT_EQ(l.getSize(), 2);
     ASSERT_EQ((*it)->getQuantity(), 4);
+
+    ASSERT_EQ(l.modifyQuantity(p3, 8, "Utente1"), 1);
 }
 
 TEST_F(ListaSpesaTest, buyProd) {
-    l.buyProd(p1, "Utente2");
+    ASSERT_EQ(l.buyProd(p1, "Utente2"), 0);
     auto it = l.getProducts().begin();
     ASSERT_TRUE((*it)->isBought1());
+
+    ASSERT_EQ(l.buyProd(p1, "Utente2"), 1);
+    ASSERT_EQ(l.buyProd(p3, "Utente2"), 2);
 }

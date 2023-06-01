@@ -60,8 +60,17 @@ int Utente::modify(std::shared_ptr<ListaSpesa> l, std::shared_ptr<Prodotto> p, i
     }
 }
 
-void Utente::displayList(std::shared_ptr<ListaSpesa>l) {
-    l->display();
+int Utente::displayList(std::shared_ptr<ListaSpesa>l) {
+    auto it = std::find_if(subjects.begin(), subjects.end(), [&l](Subject* subj) {
+        return dynamic_cast<ListaSpesa*>(subj) == l.get();
+    });
+    if(it != subjects.end()) {
+        l->display();
+        return 0;
+    }else{
+        std::cout << "La lista della spesa " << l->getName() << " non è presente nelle tue liste" << std::endl;
+        return 1;
+    }
 }
 
 const std::string &Utente::getName() const {

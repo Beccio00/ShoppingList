@@ -30,7 +30,7 @@ public:
 
     int buy(std::shared_ptr<ListaSpesa> l, std::shared_ptr<Prodotto> p);
 
-    void displayList(std::shared_ptr<ListaSpesa> l);
+    int displayList(std::shared_ptr<ListaSpesa> l);
 
     const std::string &getName() const;
 
