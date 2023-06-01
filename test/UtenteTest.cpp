@@ -70,3 +70,13 @@ TEST_F(UtenteTest, DisplayList) {
 
     ASSERT_EQ(u.displayList(l2), 1);
 }
+
+TEST_F(UtenteTest, getProduct){
+    const std::list<std::shared_ptr<Prodotto>>& products = u.getProducts(l1);
+
+    ASSERT_EQ(products.size(), 1);
+
+    ASSERT_TRUE(products == l1->getProducts());
+
+    ASSERT_TRUE(u.getProducts(l2).empty()); //Testo il fatto che getProducts con l2 ha restituito un oggetto vuoto
+}

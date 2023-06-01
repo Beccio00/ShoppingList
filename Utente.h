@@ -38,9 +38,14 @@ public:
 
     const std::list<Subject *> &getSubjects() const;
 
+    const std::list<std::shared_ptr<Prodotto>> &getProducts(std::shared_ptr<ListaSpesa> l) const;
 private:
     std::string name;
     std::list<Subject*> subjects;
+
+
+
+
 };
 
 

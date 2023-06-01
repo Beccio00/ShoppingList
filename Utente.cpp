@@ -100,4 +100,19 @@ int Utente::buy(std::shared_ptr<ListaSpesa> l, std::shared_ptr<Prodotto> p) {
 
 }
 
+const std::list<std::shared_ptr<Prodotto>>& Utente::getProducts(std::shared_ptr<ListaSpesa> l) const {
+    auto it = std::find_if(subjects.begin(), subjects.end(), [&l](Subject* subj) {
+        return dynamic_cast<ListaSpesa*>(subj) == l.get();
+    });
+
+    if(it != subjects.end()) {
+        return l->getProducts();
+    }else{
+        static std::list<std::shared_ptr<Prodotto>> emptyList;
+        return emptyList;
+    }
+
+}
+
+
 
