@@ -41,7 +41,7 @@ int Utente::remove(std::shared_ptr<ListaSpesa> l, std::shared_ptr<Prodotto> p) {
         l->removeProd(p, this->name);
         return 0;
     } else{
-        std::cout << "La lista della spesa" << l->getName() << "non è presente nelle tue liste" << std::endl;
+        std::cout << "La lista della spesa " << l->getName() << " non è presente nelle tue liste" << std::endl;
         return 1;
     }
 }
@@ -55,7 +55,7 @@ int Utente::modify(std::shared_ptr<ListaSpesa> l, std::shared_ptr<Prodotto> p, i
         return 0;
     }
     else{
-        std::cout << "La lista della spesa" << l->getName() << "non è presente nelle tue liste" << std::endl;
+        std::cout << "La lista della spesa " << l->getName() << " non è presente nelle tue liste" << std::endl;
         return 1;
     }
 }
@@ -81,12 +81,11 @@ int Utente::buy(std::shared_ptr<ListaSpesa> l, std::shared_ptr<Prodotto> p) {
         return dynamic_cast<ListaSpesa*>(subj) == l.get();
     });
 
-
     if(it != subjects.end()){
         l->buyProd(p, this->name);
         return 0;
     } else{
-        std::cout << "La lista della spesa" << l->getName() << "non è presente nelle tue liste" << std::endl;
+        std::cout << "La lista della spesa " << l->getName() << " non è presente nelle tue liste" << std::endl;
         return 1;
     }
 

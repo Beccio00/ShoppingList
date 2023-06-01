@@ -31,10 +31,16 @@ TEST_F(UtenteTest, GetterSetter){
 
 TEST_F(UtenteTest, AddRemove){
 
-    u.add(l1, p2);
+    ASSERT_EQ(u.add(l1, p2), 0);
     ASSERT_EQ(l1->getSize(), 2);
 
-    u.remove(l1, p2);
+    ASSERT_EQ(u.add(l2, p2), 1);
+    ASSERT_EQ(l1->getSize(), 2);
+
+    ASSERT_EQ(u.remove(l2, p2), 1);
+    ASSERT_EQ(l1->getSize(), 2);
+
+    ASSERT_EQ(u.remove(l1, p2), 0);
     ASSERT_EQ(l1->getSize(), 1);
 }
 
@@ -47,8 +53,14 @@ TEST_F(UtenteTest, AttachDetach) {
 }
 
 TEST_F(UtenteTest, Buy) {
-    u.buy(l1, p1);
-
+    ASSERT_EQ(u.buy(l1, p1), 0);
     ASSERT_TRUE(p1->isBought1());
+
+    ASSERT_EQ(u.buy(l2, p1), 1);
 }
 
+TEST_F(UtenteTest, Modify) {
+    ASSERT_EQ(u.modify(l1, p1, 4), 0);
+
+    ASSERT_EQ(u.modify(l2, p1, 4), 1);
+}
