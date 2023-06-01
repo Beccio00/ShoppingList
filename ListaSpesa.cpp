@@ -9,24 +9,27 @@ void ListaSpesa::addProd(std::shared_ptr<Prodotto> p, const std::string& u) {
     notify(1, u);
 }
 
-void ListaSpesa::removeProd(std::shared_ptr<Prodotto> p, const std::string& u) {
+int ListaSpesa::removeProd(std::shared_ptr<Prodotto> p, const std::string& u) {
     auto it = std::find(products.begin(),products.end(),p);
 
     if(it != products.end()) {
         products.remove(p);
         notify(2, u);
+        return 0;
     } else{
         std::cout << "Il prodotto selezionato non è presente nella lista " << this->name << std::endl;
+        return 1;
     }
 }
 
-void ListaSpesa::modifyQuantity(std::shared_ptr<Prodotto> p, int q, const std::string& u) {
+int ListaSpesa::modifyQuantity(std::shared_ptr<Prodotto> p, int q, const std::string& u) {
     auto it = std::find(products.begin(),products.end(),p);
 
     if(it != products.end()){
         if(q>0) {
             (*it)->setQuantity(q);
             notify(3, u);
+            return 0;
         }
         else if(q==0){
             removeProd(p,u);
@@ -35,27 +38,29 @@ void ListaSpesa::modifyQuantity(std::shared_ptr<Prodotto> p, int q, const std::s
             std::cin >> q;
             modifyQuantity(p, q, u);
         }
-
-
     }
     else{
         std::cout << "Il prodotto selezionato non è presente nella lista " << this->name << std::endl;
+        return 1;
     }
 }
 
-void ListaSpesa::buyProd(std::shared_ptr<Prodotto> p, const std::string& u) {
+int ListaSpesa::buyProd(std::shared_ptr<Prodotto> p, const std::string& u) {
     auto it = std::find(products.begin(),products.end(),p);
 
     if(it != products.end()) {
         if(!(*it)->isBought1()) {
             (*it)->setIsBought(true);
             notify(4,u);
+            return 0;
         } else{
             std::cout << "Il prodotto selezionato è già stato comprato" << std::endl;
+            return 1;
         }
 
     } else{
         std::cout << "Il prodotto selezionato non è presente nella lista " << this->name << std::endl;
+        return 2;
     }
 }
 

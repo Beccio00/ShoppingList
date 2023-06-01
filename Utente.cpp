@@ -18,45 +18,46 @@ void Utente::update(const std::string& s) {
     std::cout << s << std::endl;
 }
 
-void Utente::add(std::shared_ptr<ListaSpesa> l, std::shared_ptr<Prodotto> p) {
+int Utente::add(std::shared_ptr<ListaSpesa> l, std::shared_ptr<Prodotto> p) {
     auto it = std::find_if(subjects.begin(), subjects.end(), [&l](Subject* subj) {
         return dynamic_cast<ListaSpesa*>(subj) == l.get();
     });
 
-
     if(it != subjects.end()){
         l->addProd(p, this->name);
+        return 0;
     } else{
         std::cout << "La lista della spesa" << l->getName() << "non è presente nelle tue liste" << std::endl;
+        return 1;
     }
 }
 
-void Utente::remove(std::shared_ptr<ListaSpesa> l, std::shared_ptr<Prodotto> p) {
+int Utente::remove(std::shared_ptr<ListaSpesa> l, std::shared_ptr<Prodotto> p) {
      auto it = std::find_if(subjects.begin(), subjects.end(), [&l](Subject* subj) {
         return dynamic_cast<ListaSpesa*>(subj) == l.get();
     });
-
 
     if(it != subjects.end()){
         l->removeProd(p, this->name);
+        return 0;
     } else{
         std::cout << "La lista della spesa" << l->getName() << "non è presente nelle tue liste" << std::endl;
+        return 1;
     }
 }
 
-void Utente::modify(std::shared_ptr<ListaSpesa> l, std::shared_ptr<Prodotto> p, int q) {
+int Utente::modify(std::shared_ptr<ListaSpesa> l, std::shared_ptr<Prodotto> p, int q) {
      auto it = std::find_if(subjects.begin(), subjects.end(), [&l](Subject* subj) {
         return dynamic_cast<ListaSpesa*>(subj) == l.get();
     });
-
-
-
-    if(it != subjects.end())
+    if(it != subjects.end()) {
         l->modifyQuantity(p, q, this->name);
-    else
+        return 0;
+    }
+    else{
         std::cout << "La lista della spesa" << l->getName() << "non è presente nelle tue liste" << std::endl;
-
-
+        return 1;
+    }
 }
 
 void Utente::displayList(std::shared_ptr<ListaSpesa>l) {
@@ -75,7 +76,7 @@ const std::list<Subject *> &Utente::getSubjects() const {
     return subjects;
 }
 
-void Utente::buy(std::shared_ptr<ListaSpesa> l, std::shared_ptr<Prodotto> p) {
+int Utente::buy(std::shared_ptr<ListaSpesa> l, std::shared_ptr<Prodotto> p) {
      auto it = std::find_if(subjects.begin(), subjects.end(), [&l](Subject* subj) {
         return dynamic_cast<ListaSpesa*>(subj) == l.get();
     });
@@ -83,9 +84,12 @@ void Utente::buy(std::shared_ptr<ListaSpesa> l, std::shared_ptr<Prodotto> p) {
 
     if(it != subjects.end()){
         l->buyProd(p, this->name);
+        return 0;
     } else{
         std::cout << "La lista della spesa" << l->getName() << "non è presente nelle tue liste" << std::endl;
+        return 1;
     }
+
 }
 
 

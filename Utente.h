@@ -22,13 +22,13 @@ public:
 
     void update(const std::string& s) override;
 
-    void add(std::shared_ptr<ListaSpesa> l, std::shared_ptr<Prodotto> p);
+    int add(std::shared_ptr<ListaSpesa> l, std::shared_ptr<Prodotto> p);
 
-    void remove(std::shared_ptr<ListaSpesa> l, std::shared_ptr<Prodotto> p);
+    int remove(std::shared_ptr<ListaSpesa> l, std::shared_ptr<Prodotto> p);
 
-    void modify(std::shared_ptr<ListaSpesa> l, std::shared_ptr<Prodotto> p, int q);
+    int modify(std::shared_ptr<ListaSpesa> l, std::shared_ptr<Prodotto> p, int q);
 
-    void buy(std::shared_ptr<ListaSpesa> l, std::shared_ptr<Prodotto> p);
+    int buy(std::shared_ptr<ListaSpesa> l, std::shared_ptr<Prodotto> p);
 
     void displayList(std::shared_ptr<ListaSpesa> l);
 

@@ -21,11 +21,11 @@ public:
 
     void addProd(std::shared_ptr<Prodotto> p, const std::string& u);
 
-    void removeProd(std::shared_ptr<Prodotto> p, const std::string& u);
+    int removeProd(std::shared_ptr<Prodotto> p, const std::string& u);
 
-    void modifyQuantity(std::shared_ptr<Prodotto> p, int q, const std::string& u);
+    int modifyQuantity(std::shared_ptr<Prodotto> p, int q, const std::string& u);
 
-    void buyProd(std::shared_ptr<Prodotto> p, const std::string& u);
+    int buyProd(std::shared_ptr<Prodotto> p, const std::string& u);
 
     void subscribe(Observer* o) override;
 
