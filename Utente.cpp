@@ -65,11 +65,15 @@ int Utente::displayList(std::shared_ptr<ListaSpesa>l) {
         return dynamic_cast<ListaSpesa*>(subj) == l.get();
     });
     if(it != subjects.end()) {
+        std::cout << std::endl;
+        std::cout << std::endl;
+        std::cout << std::endl;
+        std::cout << "In questa lista sono presenti " << l->getSize() << " prodotti"<<std::endl;
+
         int i = 1;
 
         std::cout << std::endl;
-        std::cout << std::endl;
-        std::cout << this->name << std::endl;
+        std::cout << l->getName() << std::endl;
         std::cout << std::endl;
         std::cout << "        Prodotto            Categoria          Quantità          " << std::endl;
         for(auto itr: l->getProducts()){
