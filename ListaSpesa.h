@@ -37,7 +37,7 @@ public:
 
     void setName(const std::string &name);
 
-    void display();
+
 
     int getSize();
 

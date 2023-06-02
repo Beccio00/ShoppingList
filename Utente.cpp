@@ -65,7 +65,29 @@ int Utente::displayList(std::shared_ptr<ListaSpesa>l) {
         return dynamic_cast<ListaSpesa*>(subj) == l.get();
     });
     if(it != subjects.end()) {
-        l->display();
+        int i = 1;
+
+        std::cout << std::endl;
+        std::cout << std::endl;
+        std::cout << this->name << std::endl;
+        std::cout << std::endl;
+        std::cout << "        Prodotto            Categoria          Quantità          " << std::endl;
+        for(auto itr: l->getProducts()){
+            if(itr->isBought1()){
+                std::cout << std::endl;
+                std::cout << "   ✓    "<< std::left << std::setw(20) << itr->getName()<<std::setw(20)
+                          <<itr->getCategory()<<  itr->getQuantity() <<   std::endl;
+                i++;}
+            else{
+                std::cout << std::endl;
+                std::cout << "   -    "<< std::left << std::setw(20) << itr->getName()<<std::setw(20)
+                          <<itr->getCategory()<<  itr->getQuantity() << std::endl;
+                i++;
+            }
+
+        }
+
+        std::cout << std::endl;
         return 0;
     }else{
         std::cout << "La lista della spesa " << l->getName() << " non è presente nelle tue liste" << std::endl;

@@ -104,31 +104,6 @@ void ListaSpesa::setName(const std::string &n) {
     name = n;
 }
 
-void ListaSpesa::display() {
-    int i = 1;
-
-    std::cout << std::endl;
-    std::cout << std::endl;
-    std::cout << this->name << std::endl;
-    std::cout << std::endl;
-    std::cout << "        Prodotto            Categoria          Quantità          " << std::endl;
-    for(auto it:products){
-        if((*it).isBought1()){
-            std::cout << std::endl;
-            std::cout << "   ✓    "<< std::left << std::setw(20) << it->getName()<<std::setw(20)
-                      <<it->getCategory()<<  it->getQuantity() <<   std::endl;
-            i++;}
-        else{
-            std::cout << std::endl;
-            std::cout << "   -    "<< std::left << std::setw(20) << it->getName()<<std::setw(20)
-                      <<it->getCategory()<<  it->getQuantity() << std::endl;
-            i++;
-        }
-
-    }
-
-    std::cout << std::endl;
-}
 
 int ListaSpesa::getSize() {
     return products.size();
